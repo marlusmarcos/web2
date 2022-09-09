@@ -56,5 +56,11 @@ public class EstudanteServiceImpl implements EstudanteService{
 		}
 		return estudantesTemp;
 	}
+
+	@Override
+	public List<Estudante> getEstudanteByType(String type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }
