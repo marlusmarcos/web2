@@ -1,5 +1,6 @@
 package com.jeanlima.mvcapp.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -40,11 +41,19 @@ public class EstudanteServiceImpl implements EstudanteService{
 
 	@Override
 	public List<Estudante> getEstudanteByCurso(String curso) {
-		List <Estudante> estudantesTemp = null;
+		List <Estudante> estudantesTemp = new ArrayList<Estudante>();
 		for (Estudante e : estudantes) {
 			if (e.getCurso() == curso) estudantesTemp.add(e);
 		}
+		return estudantesTemp;
+	}
 
+	@Override
+	public List<Estudante> getEstudanteByLanguage(String language) {
+		List <Estudante> estudantesTemp = new ArrayList<Estudante>();
+		for (Estudante e : estudantes) {
+			if (e.getLinguagem() == language) estudantesTemp.add(e);
+		}
 		return estudantesTemp;
 	}
     

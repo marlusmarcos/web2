@@ -15,6 +15,7 @@ public interface EstudanteService {
     public void deletarEstudante(Estudante estudante);
     public Estudante getEstudanteById(Integer id);
     public List <Estudante> getEstudanteByCurso (String curso);
+    public List <Estudante> getEstudanteByLanguage (String language);
 
 
 
