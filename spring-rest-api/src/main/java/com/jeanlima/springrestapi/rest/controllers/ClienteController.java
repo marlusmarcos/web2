@@ -1,5 +1,6 @@
 package com.jeanlima.springrestapi.rest.controllers;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -95,8 +97,12 @@ public class ClienteController {
                 .findById(id)
                 .map( clienteExistente -> {
                     campos.forEach((nomePropriedade, valorPropriedade) -> {
+                    	Field field = ReflectionUtils.findField(Cliente.class, nomePropriedade);
+                    	field.setAccessible(true);
+                    	ReflectionUtils.setField(field, clienteExistente, valorPropriedade);
                     	System.out.println("nome propriedade: " + nomePropriedade + "*** valor da propriedade: " + valorPropriedade);
                     });
+                    clientes.save(clienteExistente);
                     return clienteExistente;
                 }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                     "Cliente não encontrado") );
