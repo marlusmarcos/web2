@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -99,6 +100,9 @@ public class ProdutoController {
                 .findById(id)
                 .map( produto -> {
                     campos.forEach((nomePropriedade, valorPropriedade) -> {
+                    	if (nomePropriedade == "preco") {
+                    		valorPropriedade = BigDecimal.valueOf((Integer) valorPropriedade );
+                    	}
                     	Field field = ReflectionUtils.findField(Produto.class, nomePropriedade);
                     	field.setAccessible(true);
                     	ReflectionUtils.setField(field, produto, valorPropriedade);
