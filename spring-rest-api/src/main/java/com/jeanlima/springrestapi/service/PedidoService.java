@@ -7,7 +7,7 @@ import com.jeanlima.springrestapi.model.Pedido;
 import com.jeanlima.springrestapi.rest.dto.PedidoDTO;
 
 public interface PedidoService {
-    Pedido salvar( PedidoDTO dto );
+    Pedido salvar( PedidoDTO dto ) throws Exception;
     Optional<Pedido> obterPedidoCompleto(Integer id);
     void atualizaStatus(Integer id, StatusPedido statusPedido);
     

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jeanlima.springrestapi.model.Estoque;
+import com.jeanlima.springrestapi.model.Produto;
 import com.jeanlima.springrestapi.repository.IEstoqueRepository;
 
 @Service
@@ -42,6 +43,23 @@ public class EstoqueService {
 		}
 		return null;
 	 
+	}
+	
+	public boolean ehValido (Produto p, int qtd) {
+		
+		Estoque e = buscarPorProduto(p);
+		System.out.println("ESTOQUE COM IDPRODUTO = " + e.getProdutos().getId() + "\nCom quantidade = " + e.getQuantidade());
+		if (e.getQuantidade() >= qtd) {
+			e.setQuantidade(e.getQuantidade() - qtd);
+			updateEstoque(e.getId(), e);
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public Estoque buscarPorProduto (Produto p ) {
+		return estoqueRepository.findByProduto(p);
 	}
 	
 	

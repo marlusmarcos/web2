@@ -14,7 +14,7 @@ public class Estoque {
 	private Integer id;
 	
 	@OneToOne
-	private Produto produtos;
+	private Produto produto;
 	
 	private int quantidade;
 	
@@ -36,11 +36,11 @@ public class Estoque {
 
 
 	public Produto getProdutos() {
-		return produtos;
+		return produto;
 	}
 
 	public void setProdutos(Produto produtos) {
-		this.produtos = produtos;
+		this.produto = produtos;
 	}
 	
 	
