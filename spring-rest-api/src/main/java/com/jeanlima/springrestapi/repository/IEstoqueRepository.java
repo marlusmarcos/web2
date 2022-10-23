@@ -19,7 +19,7 @@ public interface IEstoqueRepository extends JpaRepository<Estoque, Integer> {
 	Estoque findByProduto (Produto produto);
 	
 	//@Query ("select * from Estoque where Produto.descricao = :descricao")
-	List<Estoque> findByNomeProduto (@Param("descricao") String descricao);
+	//List<Estoque> findByNomeProduto (@Param("descricao") String descricao);
 	
 	//Optional<Estoque>  findByid_produto (String nameProduto);
 

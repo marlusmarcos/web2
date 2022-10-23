@@ -27,11 +27,11 @@ public class EstoqueController {
 	public Optional<Estoque> buscarPorId (@PathVariable Integer id) {
 		return _estoqueService.getById(id);
 	}
-	@GetMapping("{descricao}")
-	public List<Estoque> buscarPornomeProduto (@PathVariable String descricao) {
-		return _estoqueService.buscarPeloNomeProduto(descricao);
-	}
-	
+//	@GetMapping("{descricao}")
+//	public List<Estoque> buscarPornomeProduto (@PathVariable String descricao) {
+//		return _estoqueService.buscarPeloNomeProduto(descricao);
+//	}
+//	
 	@PostMapping()
 	public Estoque createEstoque (@RequestBody Estoque estoque) {
 		return _estoqueService.criarEstoque(estoque);

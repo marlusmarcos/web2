@@ -63,9 +63,9 @@ public class EstoqueService {
 		return estoqueRepository.findByProduto(p);
 	}
 	
-	public List <Estoque> buscarPeloNomeProduto (String nome) {
-		return estoqueRepository.findByNomeProduto(nome);
-	}
-	
+//	public List <Estoque> buscarPeloNomeProduto (String nome) {
+//		return estoqueRepository.findByNomeProduto(nome);
+//	}
+//	
 	
 }
