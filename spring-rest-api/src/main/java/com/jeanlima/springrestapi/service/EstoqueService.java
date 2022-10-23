@@ -1,5 +1,6 @@
 package com.jeanlima.springrestapi.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,9 @@ public class EstoqueService {
 		return estoqueRepository.findByProduto(p);
 	}
 	
+	public List <Estoque> buscarPeloNomeProduto (String nome) {
+		return estoqueRepository.findByNomeProduto(nome);
+	}
 	
 	
 }
